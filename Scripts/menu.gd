@@ -1,21 +1,8 @@
-extends Node  
+extends Control
 
-func _ready():
-	get_node("menu").show()
-	get_node("options").hide()
-	get_node("sound").hide()
+func _ready(): pass
 
-func show_menu():
-	get_node("menu").show()
-	get_node("options").hide()
-	get_node("sound").hide()
+func _on_start_pressed():
+	Loader.change_level("res://Scene/HouseInt1.tscn")
 
-func show_options():
-	get_node("menu").hide()
-	get_node("options").show()
-	get_node("sound").hide()
-
-func show_sound():
-	get_node("menu").hide()
-	get_node("options").hide()
-	get_node("sound").show()
+func _on_quit_pressed() -> void: get_tree().quit()

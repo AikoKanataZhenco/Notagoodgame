@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbh8g7xoohmxj"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_ag4ov"]
+[ext_resource type="Shader" path="res://Scripts/shader.gdshader" id="2_12sbs"]
+[ext_resource type="Texture2D" uid="uid://2xe63yadp06f" path="res://Assets/background/1.png" id="3_wkint"]
+[ext_resource type="Texture2D" uid="uid://khp3vwcqa0ix" path="res://Assets/background/2.png" id="4_o8un3"]
+[ext_resource type="Texture2D" uid="uid://cbm30icdmppxp" path="res://Assets/background/3.png" id="5_ytn4w"]
+[ext_resource type="Texture2D" uid="uid://dipufii00kaqr" path="res://Assets/background/4.png" id="6_iaocr"]
+[ext_resource type="Texture2D" uid="uid://3vvllvfy26i2" path="res://Assets/background/5.png" id="7_65fa5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bl1q0"]
+shader = ExtResource("2_12sbs")
+shader_parameter/speed = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2344u"]
+shader = ExtResource("2_12sbs")
+shader_parameter/speed = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dwgbu"]
+shader = ExtResource("2_12sbs")
+shader_parameter/speed = 0.015
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0oq4n"]
+shader = ExtResource("2_12sbs")
+shader_parameter/speed = 0.01
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ag4ov")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -169.0
+offset_right = 134.0
+offset_bottom = -68.0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_bl1q0")
+position = Vector2(692, 361)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_wkint")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -4
+texture_repeat = 2
+material = SubResource("ShaderMaterial_2344u")
+position = Vector2(692, 361)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_o8un3")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_dwgbu")
+position = Vector2(692, 361)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_ytn4w")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0oq4n")
+position = Vector2(692, 361)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_iaocr")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+z_index = -4
+position = Vector2(692, 361)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_65fa5")
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
