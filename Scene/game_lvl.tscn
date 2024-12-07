@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jafvyygf5ep7"]
+[gd_scene load_steps=14 format=3 uid="uid://jafvyygf5ep7"]
 
 [ext_resource type="PackedScene" uid="uid://bajs0k2b6myfv" path="res://Scene/player.tscn" id="1_36h6k"]
 [ext_resource type="Script" path="res://Scripts/parallax_background.gd" id="2_5qx8h"]
@@ -14,39 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://dfucwrs7uarkg" path="res://Assets/background/backgorund2/6.png" id="14_hue2q"]
 [ext_resource type="PackedScene" uid="uid://b1fnltbqnnbv8" path="res://Scene/Skool.tscn" id="16_13odj"]
 
-[sub_resource type="Environment" id="Environment_si424"]
-background_mode = 3
-background_energy_multiplier = 2.0
-ambient_light_color = Color(0.45768, 0.351011, 0.526756, 1)
-ambient_light_energy = 4.15
-tonemap_mode = 3
-ssao_enabled = true
-ssao_radius = 4.7
-ssao_detail = 1.0
-glow_normalized = true
-glow_intensity = 0.32
-glow_bloom = 1.0
-glow_blend_mode = 1
-glow_hdr_threshold = 4.0
-glow_hdr_scale = 4.0
-glow_map_strength = 1.0
-fog_mode = 1
-fog_light_energy = 2.09
-fog_sun_scatter = 0.65
-fog_density = 1.0
-fog_height = 245.06
-volumetric_fog_density = 0.1953
-volumetric_fog_emission_energy = 1.95
-volumetric_fog_gi_inject = 1.33
-volumetric_fog_anisotropy = 0.9
-volumetric_fog_length = 309.06
-
 [node name="Game LVL" type="Node2D"]
+y_sort_enabled = true
 position = Vector2(-11, -14)
 
 [node name="Player" parent="." instance=ExtResource("1_36h6k")]
 z_index = 1
-y_sort_enabled = false
 position = Vector2(1080, 504)
 scale = Vector2(0.8, 0.8)
 
@@ -111,10 +84,8 @@ script = ExtResource("4_206ka")
 position = Vector2(-201, -165)
 scale = Vector2(1.5, 1.5)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_si424")
-
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
 position = Vector2(-393, 249)
@@ -174,14 +145,14 @@ centered = false
 position = Vector2(436, 309)
 
 [node name="Marker2D" parent="Area2D" index="1"]
-position = Vector2(-426, -1324)
+position = Vector2(-294, -978)
 
 [node name="good ass test map" parent="." instance=ExtResource("11_dw1qo")]
-position = Vector2(-32, -1102)
+position = Vector2(100, -756)
 scale = Vector2(1.5, 1.5)
 
 [node name="Area2D2" parent="." instance=ExtResource("12_a0n6q")]
-position = Vector2(714, -628)
+position = Vector2(846, -282)
 
 [node name="CollisionShape2D" parent="Area2D2" index="0"]
 position = Vector2(-11, -154)

@@ -13,7 +13,8 @@ config_version=5
 config/name="awds"
 run/main_scene="res://Scene/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/bg_color=Color(0.171944, 0.230394, 0.426228, 1)
+boot_splash/bg_color=Color(0.0133511, 0.0675881, 0.0694455, 1)
+boot_splash/image="res://Assets/New Project.png"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -32,7 +33,10 @@ directories/dtl_directory={}
 
 window/size/viewport_width=1366
 window/size/viewport_height=728
+window/size/initial_position_type=0
 window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
@@ -81,8 +85,10 @@ interact={
 
 [layer_names]
 
-2d_physics/layer_1="world"
+2d_physics/layer_1="player"
 2d_physics/layer_2="interactions"
+2d_physics/layer_3="world"
+2d_physics/layer_4="props"
 
 [rendering]
 

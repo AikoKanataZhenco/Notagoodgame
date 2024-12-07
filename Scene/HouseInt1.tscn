@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://b3gk5mghsk55e"]
 
-[ext_resource type="PackedScene" uid="uid://ci0bhuiya1q3u" path="res://Assets/Tiled/Tiled/interior1.tmx" id="1_1nj6b"]
+[ext_resource type="PackedScene" uid="uid://ca7yf6v646mha" path="res://Scene/interior_1.tscn" id="1_0qjyq"]
 [ext_resource type="PackedScene" uid="uid://d1hyhlqmbwmmx" path="res://Scene/planetex.tscn" id="1_eyhnk"]
 [ext_resource type="PackedScene" uid="uid://68v21jhrhhib" path="res://Assets/Tiled/Tiled/interior2(1).tscn" id="2_ktkto"]
 [ext_resource type="PackedScene" uid="uid://bajs0k2b6myfv" path="res://Scene/player.tscn" id="3_koa1i"]
@@ -18,7 +18,7 @@ size = Vector2(172, 44.5)
 size = Vector2(26, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gksot"]
-size = Vector2(62.2222, 84.4444)
+size = Vector2(62.2222, 24.7222)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwe8"]
 size = Vector2(87, 65)
@@ -55,13 +55,15 @@ shader = ExtResource("5_kbe6p")
 shader_parameter/speed = 0.01
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 
-[node name="TileMapLayer" parent="." instance=ExtResource("1_eyhnk")]
-position = Vector2(133, 95)
-
-[node name="interior1" parent="." instance=ExtResource("1_1nj6b")]
+[node name="interior2" parent="." instance=ExtResource("1_0qjyq")]
 position = Vector2(97, 245)
 scale = Vector2(1.8, 1.8)
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_eyhnk")]
+z_index = -3
+position = Vector2(133, 95)
 
 [node name="interior2(1)" parent="." instance=ExtResource("2_ktkto")]
 position = Vector2(68, -1)
@@ -107,7 +109,7 @@ position = Vector2(747, 243)
 shape = SubResource("RectangleShape2D_x12ii")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(500, 451)
+position = Vector2(500, 527.25)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_gksot")
 
@@ -158,6 +160,11 @@ shape = SubResource("RectangleShape2D_x12ii")
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(809, 607)
 shape = SubResource("RectangleShape2D_x12ii")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(499, 453)
+scale = Vector2(1.8, 1.8)
+shape = SubResource("RectangleShape2D_gksot")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("10_bhu2p")
