@@ -13,4 +13,4 @@ func _on_body_exited(body) -> void:
 func _process(delta):
 	if entered == true:
 		if Input.is_action_just_pressed("interact"):
-			Loader.change_level("res://Scene/School.tscn")
+			Loader.change_level("res://Scene/House.tscn")
