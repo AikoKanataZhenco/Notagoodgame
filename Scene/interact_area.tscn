@@ -11,3 +11,10 @@ script = ExtResource("1_ys2at")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_or180")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -37.0
+offset_right = 21.0
+offset_bottom = -14.0
+text = "asda"
