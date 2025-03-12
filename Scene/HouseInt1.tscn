@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b3gk5mghsk55e"]
+[gd_scene load_steps=26 format=3 uid="uid://b3gk5mghsk55e"]
 
 [ext_resource type="PackedScene" uid="uid://ca7yf6v646mha" path="res://Scene/interior_1.tscn" id="1_0qjyq"]
 [ext_resource type="PackedScene" uid="uid://d1hyhlqmbwmmx" path="res://Scene/planetex.tscn" id="1_eyhnk"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bs64phsf5sh6p" path="res://Assets/Clouds/Clouds 4/3.png" id="9_tudyw"]
 [ext_resource type="Texture2D" uid="uid://cbb6xfwpf8ul6" path="res://Assets/Clouds/Clouds 4/4.png" id="10_aajgg"]
 [ext_resource type="Script" path="res://Scripts/transfer.gd" id="10_bhu2p"]
+[ext_resource type="PackedScene" uid="uid://bkuprnhejglri" path="res://Scene/npc2.tscn" id="11_74xuc"]
+[ext_resource type="AudioStream" uid="uid://dc3gghiiq65xe" path="res://Assets/Music/Main Theme.mp3" id="12_fmx8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1a4i1"]
 size = Vector2(172, 44.5)
@@ -209,6 +211,17 @@ material = SubResource("ShaderMaterial_sma3l")
 position = Vector2(698, 362)
 scale = Vector2(3, 3)
 texture = ExtResource("10_aajgg")
+
+[node name="npc2" parent="." instance=ExtResource("11_74xuc")]
+z_index = 1
+position = Vector2(544, 546)
+scale = Vector2(2, 2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_fmx8n")
+volume_db = -15.0
+autoplay = true
+panning_strength = 0.0
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

@@ -19,6 +19,7 @@ shape = SubResource("RectangleShape2D_5xt7x")
 [node name="Marker2D" type="Marker2D" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 z_index = -500
 script = ExtResource("2_q8bdx")
 

@@ -9,6 +9,9 @@ extends CharacterBody2D
 func _ready():
 	update_animation_parameters(starting_direction)
 
+func player():
+	pass
+
 func _physics_process(_delta):
 	
 	var input_direction = Vector2(

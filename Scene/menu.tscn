@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbh8g7xoohmxj"]
+[gd_scene load_steps=14 format=3 uid="uid://dbh8g7xoohmxj"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_ag4ov"]
 [ext_resource type="Shader" path="res://Scripts/shader.gdshader" id="2_12sbs"]
@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://cbm30icdmppxp" path="res://Assets/background/3.png" id="5_ytn4w"]
 [ext_resource type="Texture2D" uid="uid://dipufii00kaqr" path="res://Assets/background/4.png" id="6_iaocr"]
 [ext_resource type="Texture2D" uid="uid://3vvllvfy26i2" path="res://Assets/background/5.png" id="7_65fa5"]
+[ext_resource type="Texture2D" uid="uid://h3jl2m4vy7pm" path="res://Assets/-UnMasked-3-11-2025.png" id="8_bvyia"]
+[ext_resource type="AudioStream" uid="uid://dc3gghiiq65xe" path="res://Assets/Music/Main Theme.mp3" id="9_oiohw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bl1q0"]
 shader = ExtResource("2_12sbs")
-shader_parameter/speed = 0.1
+shader_parameter/speed = 0.035
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2344u"]
 shader = ExtResource("2_12sbs")
@@ -38,24 +40,29 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 19.0
-offset_top = -169.0
-offset_right = 134.0
-offset_bottom = -68.0
+offset_left = 46.0
+offset_top = -265.0
+offset_right = 296.0
+offset_bottom = -44.0
 grow_vertical = 0
-scale = Vector2(1.5, 1.5)
 alignment = 1
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.529412, 0.537255, 0.796078, 1)
+theme_override_font_sizes/font_size = 45
 text = "Start"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.529412, 0.537255, 0.796078, 1)
+theme_override_font_sizes/font_size = 45
 text = "Options"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.529412, 0.537255, 0.796078, 1)
+theme_override_font_sizes/font_size = 45
 text = "Quit"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -99,5 +106,26 @@ position = Vector2(692, 361)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_65fa5")
 
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(409, 364)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_bvyia")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_oiohw")
+volume_db = -15.0
+autoplay = true
+panning_strength = 0.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1213.0
+offset_top = 695.0
+offset_right = 1366.0
+offset_bottom = 726.0
+text = "A Different Gaehm"
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
