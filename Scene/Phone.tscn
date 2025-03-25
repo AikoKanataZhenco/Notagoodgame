@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dswb6bibbdeej"]
+
+[ext_resource type="Texture2D" uid="uid://bo3xqmmipnldw" path="res://Assets/Phone/7B.png" id="1_romgu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Phone" type="Sprite2D" parent="."]
+position = Vector2(182, 112)
+scale = Vector2(1.00659, 1)
+texture = ExtResource("1_romgu")
+
+[node name="Apps" type="Node2D" parent="Phone"]
+position = Vector2(-180.809, -112)
+scale = Vector2(0.993453, 1)

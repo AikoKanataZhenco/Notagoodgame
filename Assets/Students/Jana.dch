@@ -1,0 +1,146 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+&"default_portrait": "",
+&"description": "Pink Tail Hair Normal",
+&"display_name": "Jana",
+&"mirror": false,
+&"nicknames": ["Jana"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Jana Normal.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Bob": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Bob.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Czyd": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Czyd.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Emerald": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Emerald.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Greg": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Greg.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Jaden": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Jaden.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Jana": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Jana.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Jana Delight": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Jana Delight.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Jana Face": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Jana Face.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Jana Normal": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Jana Normal.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Jet": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Jet.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Jill": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Jill.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"SIR_MIGUEL": {
+"export_overrides": {
+"image": "\"res://Assets/Students/SIR_MIGUEL.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Wing": {
+"export_overrides": {
+"image": "\"res://Assets/Students/Wing.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

@@ -1,0 +1,5 @@
+[background arg="res://Assets/Png/summer7/Summer7.png" fade="0.0"]
+join Janaw (Jana Normal) leftmost [animation="Slide In Up" length="1.0"]
+Jana: Hey! You’re finally here! I was starting to think you ditched me!
+join Janaw (Jana Delight) leftmost [animation="Instant In" length="1.0"]
+Jana: I’ve been waiting forever. Come on, I found this cool place I wanna show you!

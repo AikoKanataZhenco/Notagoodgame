@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://oqxomeeep0ea"]
+
+[ext_resource type="PackedScene" uid="uid://bluri2pdice12" path="res://Assets/Tiled/Tiled/CR.tmx" id="1_grrho"]
+[ext_resource type="PackedScene" uid="uid://bajs0k2b6myfv" path="res://Scene/player.tscn" id="2_g7ahy"]
+[ext_resource type="Script" uid="uid://bqorrtrw6dx1t" path="res://Scripts/croom.gd" id="3_g7ahy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7ahy"]
+height = 38.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CR" parent="." instance=ExtResource("1_grrho")]
+position = Vector2(228, -96)
+scale = Vector2(1.8, 1.8)
+
+[node name="Player" parent="." instance=ExtResource("2_g7ahy")]
+position = Vector2(676, 272)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(6, 6)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_g7ahy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(674, 241)
+shape = SubResource("CapsuleShape2D_g7ahy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(119, 64)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(410, 176, 429.882, 176.102, 440, 194, 457, 173, 462, 189, 509, 191, 510, 176, 517.598, 176.555, 527, 194, 536, 177, 604, 177, 614, 195, 620, 175, 631, 178, 635, 226, 650, 225, 652, 177, 670, 181, 670, 399, 410, 404, 410, 301, 431, 307, 431, 392, 475, 392, 474, 339, 474, 308, 498, 356, 532, 333, 550, 310, 552, 335, 586, 336, 585, 311, 599, 311, 592, 296, 593, 265, 430, 263, 430, 293, 410, 290)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[node name="CR" type="Node2D"]
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 2
+tile_size = Vector2( 16, 16 )

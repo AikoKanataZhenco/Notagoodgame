@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://bibps3iyf1ny4"]
+
+[ext_resource type="PackedScene" uid="uid://htxy4hp8f42c" path="res://Assets/Tiled/Tiled/MAIN.tmx" id="1_i3gp4"]
+[ext_resource type="PackedScene" uid="uid://bajs0k2b6myfv" path="res://Scene/player.tscn" id="2_ebgbd"]
+[ext_resource type="Script" uid="uid://bmkdi8m12wnfg" path="res://Scripts/master.gd" id="3_4myep"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3gp4"]
+height = 40.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3gp4"]
+size = Vector2(51, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebgbd"]
+size = Vector2(53, 13)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4myep"]
+radius = 6.99971
+height = 55.9993
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MAIN" parent="." instance=ExtResource("1_i3gp4")]
+position = Vector2(-121, -257)
+scale = Vector2(1.8, 1.8)
+
+[node name="Player" parent="." instance=ExtResource("2_ebgbd")]
+position = Vector2(353, 104)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(6, 6)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_4myep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(354, 79)
+shape = SubResource("CapsuleShape2D_i3gp4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(57, 13)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(122, 65, 140, 66, 139, 92, 170, 93, 169, 109, 225, 110, 226, 84, 253, 85, 253, 66, 357, 67, 357, 264, 253, 264, 253, 236, 240, 235, 238, 221, 212, 222, 212, 234, 199, 235, 196, 263, 137, 263, 138, 214, 164, 213, 165, 193, 137, 195, 137, 179, 137, 178, 171, 178, 176, 197, 187, 196, 189, 177, 253, 177, 253, 151, 140, 151, 140, 163, 123, 163, 122.677, 131.352, 122.405, 104.666)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(311.5, 172.5)
+shape = SubResource("RectangleShape2D_i3gp4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(311.5, 205.5)
+shape = SubResource("RectangleShape2D_ebgbd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(312, 241)
+rotation = -1.5711
+shape = SubResource("CapsuleShape2D_4myep")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

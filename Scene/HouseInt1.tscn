@@ -1,0 +1,164 @@
+[gd_scene load_steps=21 format=3 uid="uid://b3gk5mghsk55e"]
+
+[ext_resource type="PackedScene" uid="uid://qwh2y8bqcgru" path="res://Assets/Tiled/Tiled/top flor.tmx" id="1_dtndd"]
+[ext_resource type="PackedScene" uid="uid://d3wd2dmvktss" path="res://Assets/Tiled/Tiled/down flor.tmx" id="2_r48kj"]
+[ext_resource type="PackedScene" uid="uid://bajs0k2b6myfv" path="res://Scene/player.tscn" id="3_koa1i"]
+[ext_resource type="Shader" uid="uid://nijxohaqi5k8" path="res://Scripts/shader.gdshader" id="5_kbe6p"]
+[ext_resource type="Script" uid="uid://bxn115uc8exym" path="res://Scripts/room_2.gd" id="5_y5kgx"]
+[ext_resource type="Script" uid="uid://dafhgjbrjpyys" path="res://Scripts/room_3.gd" id="6_bdmle"]
+[ext_resource type="Texture2D" uid="uid://dml4nctffxdnt" path="res://Assets/Clouds/Clouds 4/1.png" id="7_ahwl5"]
+[ext_resource type="Texture2D" uid="uid://dbmnpxngwyh8s" path="res://Assets/Clouds/Clouds 4/2.png" id="8_7tedg"]
+[ext_resource type="Texture2D" uid="uid://bs64phsf5sh6p" path="res://Assets/Clouds/Clouds 4/3.png" id="9_tudyw"]
+[ext_resource type="Texture2D" uid="uid://cbb6xfwpf8ul6" path="res://Assets/Clouds/Clouds 4/4.png" id="10_aajgg"]
+[ext_resource type="Script" uid="uid://bhe3o0cxv86yj" path="res://Scripts/transfer.gd" id="10_bhu2p"]
+[ext_resource type="PackedScene" uid="uid://bkuprnhejglri" path="res://Scene/npc2.tscn" id="11_74xuc"]
+[ext_resource type="AudioStream" uid="uid://dc3gghiiq65xe" path="res://Assets/Music/Main Theme.mp3" id="12_fmx8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_856iv"]
+size = Vector2(59, 29)
+
+[sub_resource type="GDScript" id="GDScript_bqeqr"]
+script/source = "extends Area2D
+
+var entered = false
+
+func _on_body_entered(body: CharacterBody2D) -> void:
+	entered = true
+
+func _process(delta):
+	if entered == true:
+		if Input.is_action_just_pressed(\"interact\"):
+			Loader.change_level(\"res://Scene/mainroom.tscn\")
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f22kg"]
+radius = 12.0
+height = 60.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i72ry"]
+shader = ExtResource("5_kbe6p")
+shader_parameter/speed = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_apvjw"]
+shader = ExtResource("5_kbe6p")
+shader_parameter/speed = 0.025
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kqclu"]
+shader = ExtResource("5_kbe6p")
+shader_parameter/speed = 0.015
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sma3l"]
+shader = ExtResource("5_kbe6p")
+shader_parameter/speed = 0.01
+
+[node name="Node2D" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Maps" type="Node2D" parent="."]
+
+[node name="top flor" parent="Maps" instance=ExtResource("1_dtndd")]
+position = Vector2(68, -1)
+scale = Vector2(1.8, 1.8)
+
+[node name="down flor" parent="Maps" instance=ExtResource("2_r48kj")]
+position = Vector2(97, 245)
+scale = Vector2(1.8, 1.8)
+
+[node name="Player" parent="." instance=ExtResource("3_koa1i")]
+position = Vector2(664, 172)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(6, 6)
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision"]
+polygon = PackedVector2Array(905, 330, 931, 331, 931, 370, 932, 452, 933, 619, 816, 619, 801, 591, 790.19, 619, 724, 619, 715, 590, 699, 617, 327, 622, 329, 517, 382, 515, 388, 521, 407, 522, 406, 464, 399, 479, 383, 480, 383, 463, 379, 436, 328, 436, 329, 414, 442, 414, 442, 456, 529, 456, 529, 489, 443, 491, 443, 517, 556, 516, 647, 517, 648, 259, 614, 256, 600, 234, 582, 260, 466, 259, 455, 221, 443, 256, 442, 207, 442, 169, 468, 170, 500, 170, 500, 179, 557, 179, 559, 160, 612, 162, 617, 129, 642, 130, 645, 110, 724, 109, 735, 101, 735, 126, 758, 127, 759, 138, 760, 259, 745, 220, 731, 258, 727, 376, 728, 501, 788, 507, 788, 435, 788, 247, 791, 31, 539, 26, 425, 42, 363, 94, 265, 230, 220, 335, 205, 485, 227, 601, 287, 690, 408, 733, 530, 755, 684, 765, 856, 752, 949, 723, 1019, 664, 1036, 559, 985, 340, 973, 291, 901, 282, 881, 287, 861, 294, 791, 301, 789, 333, 792, 439, 898, 441, 898, 390, 873, 396, 874, 377, 819, 376, 816, 397, 793, 394, 790, 331, 818, 346, 871, 347, 890, 349)
+
+[node name="house to skol" type="Area2D" parent="."]
+script = ExtResource("10_bhu2p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="house to skol"]
+position = Vector2(759.5, 605.5)
+shape = SubResource("RectangleShape2D_856iv")
+
+[node name="Room1" type="Area2D" parent="."]
+script = SubResource("GDScript_bqeqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1"]
+position = Vector2(457, 163)
+shape = SubResource("CapsuleShape2D_f22kg")
+
+[node name="Room2" type="Area2D" parent="."]
+script = ExtResource("5_y5kgx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room2"]
+position = Vector2(602, 162)
+shape = SubResource("CapsuleShape2D_f22kg")
+
+[node name="Room3" type="Area2D" parent="."]
+script = ExtResource("6_bdmle")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3"]
+position = Vector2(688, 106)
+shape = SubResource("CapsuleShape2D_f22kg")
+
+[node name="Background" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_i72ry")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("7_ahwl5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+z_index = -4
+texture_repeat = 2
+material = SubResource("ShaderMaterial_apvjw")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("8_7tedg")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_kqclu")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("9_tudyw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_sma3l")
+position = Vector2(698, 362)
+scale = Vector2(3, 3)
+texture = ExtResource("10_aajgg")
+
+[node name="NPC" type="Node2D" parent="."]
+
+[node name="Npc" parent="NPC" instance=ExtResource("11_74xuc")]
+z_index = 1
+position = Vector2(544, 546)
+scale = Vector2(2, 2)
+
+[node name="Sounds" type="Node2D" parent="."]
+visible = false
+
+[node name="Sounds" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("12_fmx8n")
+volume_db = -15.0
+autoplay = true
+panning_strength = 0.0
+
+[connection signal="body_entered" from="house to skol" to="house to skol" method="_on_body_entered"]
+[connection signal="body_exited" from="house to skol" to="house to skol" method="_on_body_exited"]
+[connection signal="body_entered" from="Room1" to="Room1" method="_on_body_entered"]
+[connection signal="body_entered" from="Room2" to="Room2" method="_on_body_entered"]
+[connection signal="body_entered" from="Room3" to="Room3" method="_on_body_entered"]

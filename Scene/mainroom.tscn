@@ -1,0 +1,110 @@
+[gd_scene load_steps=15 format=3 uid="uid://cngt5irv23vum"]
+
+[ext_resource type="PackedScene" uid="uid://ujei7rwu7mpq" path="res://Assets/Tiled/Tiled/MASTER.tmx" id="1_6ohb0"]
+[ext_resource type="PackedScene" uid="uid://bajs0k2b6myfv" path="res://Scene/player.tscn" id="2_lt3w0"]
+[ext_resource type="Script" uid="uid://2lt6sr2wqa5" path="res://Scripts/mainroom.gd" id="2_qcgeq"]
+[ext_resource type="Shader" uid="uid://nijxohaqi5k8" path="res://Scripts/shader.gdshader" id="4_cj5ov"]
+[ext_resource type="Texture2D" uid="uid://dml4nctffxdnt" path="res://Assets/Clouds/Clouds 4/1.png" id="5_nlarf"]
+[ext_resource type="Texture2D" uid="uid://dbmnpxngwyh8s" path="res://Assets/Clouds/Clouds 4/2.png" id="6_c7ekq"]
+[ext_resource type="Texture2D" uid="uid://bs64phsf5sh6p" path="res://Assets/Clouds/Clouds 4/3.png" id="7_132tc"]
+[ext_resource type="Texture2D" uid="uid://cbb6xfwpf8ul6" path="res://Assets/Clouds/Clouds 4/4.png" id="8_3n6hw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ceih"]
+radius = 12.0
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cj5ov"]
+radius = 16.0312
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4kvn"]
+shader = ExtResource("4_cj5ov")
+shader_parameter/speed = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yv13d"]
+shader = ExtResource("4_cj5ov")
+shader_parameter/speed = 0.025
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mrgnt"]
+shader = ExtResource("4_cj5ov")
+shader_parameter/speed = 0.015
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tm2vn"]
+shader = ExtResource("4_cj5ov")
+shader_parameter/speed = 0.01
+
+[node name="MainCharac" type="Node2D"]
+
+[node name="MASTER" parent="." instance=ExtResource("1_6ohb0")]
+position = Vector2(33, -46)
+scale = Vector2(1.8, 1.8)
+
+[node name="Player" parent="." instance=ExtResource("2_lt3w0")]
+position = Vector2(533, 308)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(2, 1)
+ignore_rotation = false
+zoom = Vector2(6, 6)
+limit_left = 0
+limit_top = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_qcgeq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(508, 286)
+shape = SubResource("CapsuleShape2D_0ceih")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(334, 305, 370, 306, 364, 342, 369, 368, 390, 367, 390, 352, 407, 358, 409, 348, 395, 344, 387, 304, 379, 292, 411, 287, 411, 309, 433, 309, 437, 300, 438, 335, 492, 335, 493, 306, 494, 295, 555, 296, 557, 323, 578, 323, 577, 287, 598, 285, 596, 517, 550, 517, 550, 402, 493, 403, 493, 422, 473, 422, 473, 415, 466, 415, 468, 436, 494, 436, 494, 517, 384, 518, 334, 517, 334, 469, 334, 452.61)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(363, 493, 368, 494, 386, 494, 389, 493, 389, 476, 388, 471, 394, 471, 393, 459, 399, 459, 398, 436, 381, 427, 372, 409, 362, 412, 355, 426, 353, 462, 361, 462, 364, 483)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(406, 411)
+shape = SubResource("CircleShape2D_cj5ov")
+
+[node name="Background" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_j4kvn")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("5_nlarf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+z_index = -4
+texture_repeat = 2
+material = SubResource("ShaderMaterial_yv13d")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("6_c7ekq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mrgnt")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("7_132tc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_tm2vn")
+position = Vector2(698, 362)
+scale = Vector2(3, 3)
+texture = ExtResource("8_3n6hw")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
