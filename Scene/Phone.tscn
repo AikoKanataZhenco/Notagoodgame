@@ -1,13 +1,68 @@
 [gd_scene load_steps=2 format=3 uid="uid://dswb6bibbdeej"]
 
-[ext_resource type="Texture2D" uid="uid://bo3xqmmipnldw" path="res://Assets/Phone/7B.png" id="1_romgu"]
+[ext_resource type="Texture2D" uid="uid://bo3xqmmipnldw" path="res://Assets/Phone/7B.png" id="1_m8m0n"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Phone" type="Sprite2D" parent="."]
 position = Vector2(182, 112)
 scale = Vector2(1.00659, 1)
-texture = ExtResource("1_romgu")
+texture = ExtResource("1_m8m0n")
+
+[node name="StatusBar" type="HBoxContainer" parent="Phone"]
+offset_left = -73.0
+offset_top = -141.0
+offset_right = 71.0
+offset_bottom = -118.0
+
+[node name="TimeLabel" type="Label" parent="Phone/StatusBar"]
+layout_mode = 2
+
+[node name="BatteryLabel" type="Label" parent="Phone/StatusBar"]
+layout_mode = 2
+
+[node name="SignalIcon" type="TextureRect" parent="Phone/StatusBar"]
+layout_mode = 2
+
+[node name="LockScreen" type="Control" parent="Phone"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="Phone/LockScreen"]
+layout_mode = 0
+offset_left = -71.0
+offset_top = -141.0
+offset_right = 71.0
+offset_bottom = 120.0
+
+[node name="ClockLabel" type="Label" parent="Phone/LockScreen"]
+layout_mode = 0
+offset_left = -23.8429
+offset_top = -105.0
+offset_right = 25.1571
+offset_bottom = -75.0
+
+[node name="SlideToUnlock" type="Node2D" parent="Phone/LockScreen"]
+
+[node name="Homescreen" type="Control" parent="Phone"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackGround" type="ColorRect" parent="Phone"]
+offset_left = -71.0
+offset_top = -142.0
+offset_right = 71.0
+offset_bottom = 121.0
+
+[node name="AppGrid" type="GridContainer" parent="Phone"]
+offset_left = -72.0
+offset_top = -119.0
+offset_right = 71.0
+offset_bottom = 120.0
 
 [node name="Apps" type="Node2D" parent="Phone"]
 position = Vector2(-180.809, -112)
