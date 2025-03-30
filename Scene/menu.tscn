@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dbh8g7xoohmxj"]
 
-[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_ag4ov"]
-[ext_resource type="Shader" path="res://Scripts/shader.gdshader" id="2_12sbs"]
+[ext_resource type="Script" uid="uid://bww040tjaar6n" path="res://Scripts/menu.gd" id="1_ag4ov"]
+[ext_resource type="Shader" uid="uid://dcp15df5uurlt" path="res://Scripts/shader.gdshader" id="2_12sbs"]
 [ext_resource type="Texture2D" uid="uid://2xe63yadp06f" path="res://Assets/background/1.png" id="3_wkint"]
 [ext_resource type="Texture2D" uid="uid://khp3vwcqa0ix" path="res://Assets/background/2.png" id="4_o8un3"]
 [ext_resource type="Texture2D" uid="uid://cbm30icdmppxp" path="res://Assets/background/3.png" id="5_ytn4w"]
@@ -65,6 +65,17 @@ theme_override_colors/font_color = Color(0.529412, 0.537255, 0.796078, 1)
 theme_override_font_sizes/font_size = 45
 text = "Quit"
 
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sound"
+
+[node name="Volume" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -4
 texture_filter = 1
@@ -127,5 +138,8 @@ offset_bottom = 726.0
 text = "A Different Gaehm"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

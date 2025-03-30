@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3 uid="uid://dvtxcl4m3mcna"]
+
+[ext_resource type="PackedScene" uid="uid://goi8aftr4rf" path="res://Assets/Tiled/Tiled/MASTER.tmx" id="1_inmyc"]
+[ext_resource type="Script" uid="uid://cqsmi4s52lbi7" path="res://Scripts/playroom.gd" id="2_ouohx"]
+[ext_resource type="PackedScene" uid="uid://bajs0k2b6myfv" path="res://Scene/player.tscn" id="3_ouohx"]
+[ext_resource type="Shader" uid="uid://dcp15df5uurlt" path="res://Scripts/shader.gdshader" id="4_nc4mr"]
+[ext_resource type="Texture2D" uid="uid://dml4nctffxdnt" path="res://Assets/Clouds/Clouds 4/1.png" id="5_whxq4"]
+[ext_resource type="Texture2D" uid="uid://dbmnpxngwyh8s" path="res://Assets/Clouds/Clouds 4/2.png" id="6_dq35s"]
+[ext_resource type="Texture2D" uid="uid://bs64phsf5sh6p" path="res://Assets/Clouds/Clouds 4/3.png" id="7_e2ejw"]
+[ext_resource type="Texture2D" uid="uid://cbb6xfwpf8ul6" path="res://Assets/Clouds/Clouds 4/4.png" id="8_jnbhd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qejy3"]
+radius = 16.0312
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18a4h"]
+radius = 13.0
+height = 46.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urvjt"]
+shader = ExtResource("4_nc4mr")
+shader_parameter/speed = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bceir"]
+shader = ExtResource("4_nc4mr")
+shader_parameter/speed = 0.025
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5fdv2"]
+shader = ExtResource("4_nc4mr")
+shader_parameter/speed = 0.015
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_55082"]
+shader = ExtResource("4_nc4mr")
+shader_parameter/speed = 0.01
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MASTER" parent="." instance=ExtResource("1_inmyc")]
+position = Vector2(94, 32)
+scale = Vector2(1.8, 1.8)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(394, 377, 410, 388, 429, 384, 424, 416, 434, 441, 454, 431, 445, 383, 460, 374, 471, 379, 496, 382, 498, 413, 555, 412, 555, 379, 555, 361, 615, 361, 617, 405, 638, 405, 642, 360, 657, 360, 657, 596, 610, 594, 611, 481, 554, 480, 555, 503, 529, 495, 529, 513, 557, 517, 557, 595, 395, 596)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(467, 489)
+shape = SubResource("CircleShape2D_qejy3")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(415, 528, 416, 548, 425, 563, 451, 564, 449, 545, 458, 545, 460, 515, 432, 487, 422, 485, 414, 497)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_ouohx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(570, 365)
+shape = SubResource("CapsuleShape2D_18a4h")
+
+[node name="Player" parent="." instance=ExtResource("3_ouohx")]
+position = Vector2(576, 394)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(6, 6)
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_urvjt")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("5_whxq4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_repeat = 2
+material = SubResource("ShaderMaterial_bceir")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("6_dq35s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_5fdv2")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("7_e2ejw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_55082")
+position = Vector2(698, 362)
+scale = Vector2(3, 3)
+texture = ExtResource("8_jnbhd")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

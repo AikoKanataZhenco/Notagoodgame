@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvr2434f8tf6n"]
+
+[ext_resource type="PackedScene" uid="uid://btcm8umsmlqq6" path="res://Assets/Tiled/Tiled/Art_classroom.tmx" id="1_2t7vo"]
+[ext_resource type="PackedScene" uid="uid://bajs0k2b6myfv" path="res://Scene/player.tscn" id="2_h1wed"]
+[ext_resource type="Script" uid="uid://we8yfl1mfkdo" path="res://Scripts/clasromtolob.gd" id="2_hnhs5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nq6m"]
+size = Vector2(56, 57)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hnhs5"]
+radius = 13.0
+height = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1wed"]
+radius = 13.1529
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtkrl"]
+size = Vector2(55, 38)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Art_classroom" parent="." instance=ExtResource("1_2t7vo")]
+position = Vector2(107, 50)
+scale = Vector2(1.8, 1.8)
+
+[node name="Player" parent="." instance=ExtResource("2_h1wed")]
+position = Vector2(512, 645)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(6, 6)
+
+[node name="artclasstolob" type="Area2D" parent="."]
+script = ExtResource("2_hnhs5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="artclasstolob"]
+position = Vector2(511, 683.5)
+shape = SubResource("RectangleShape2D_1nq6m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(3, 2)
+build_mode = 1
+polygon = PackedVector2Array(337, 242, 337, 687, 483, 685, 484, 671, 539, 671, 539, 685, 685, 683, 683, 234, 650, 239, 650, 279, 600, 279, 598, 239)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(395, 355)
+shape = SubResource("CapsuleShape2D_hnhs5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(451, 326)
+shape = SubResource("CapsuleShape2D_hnhs5")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(538, 356)
+shape = SubResource("CapsuleShape2D_hnhs5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(595, 326)
+shape = SubResource("CapsuleShape2D_hnhs5")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(595, 499)
+shape = SubResource("CapsuleShape2D_hnhs5")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(539, 528)
+shape = SubResource("CapsuleShape2D_hnhs5")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(452, 500)
+shape = SubResource("CapsuleShape2D_hnhs5")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(395, 528)
+shape = SubResource("CapsuleShape2D_hnhs5")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(395, 425)
+shape = SubResource("CircleShape2D_h1wed")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(453, 396)
+shape = SubResource("CircleShape2D_h1wed")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(539, 425)
+shape = SubResource("CircleShape2D_h1wed")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(597, 395)
+shape = SubResource("CircleShape2D_h1wed")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(598, 568)
+rotation = 3.04192
+shape = SubResource("CircleShape2D_h1wed")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(540, 596)
+rotation = 3.04192
+shape = SubResource("CircleShape2D_h1wed")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(452, 569)
+rotation = 3.04192
+shape = SubResource("CircleShape2D_h1wed")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(395, 597)
+rotation = 3.04192
+shape = SubResource("CircleShape2D_h1wed")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(511, 279)
+shape = SubResource("RectangleShape2D_jtkrl")

@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://bcu1i5ulo41rx"]
+
+[ext_resource type="PackedScene" uid="uid://d1nspty2qyjky" path="res://Assets/Tiled/Tiled/CR.tmx" id="1_atpe7"]
+[ext_resource type="PackedScene" uid="uid://bajs0k2b6myfv" path="res://Scene/player.tscn" id="2_nr1e1"]
+[ext_resource type="Shader" uid="uid://dcp15df5uurlt" path="res://Scripts/shader.gdshader" id="3_4yk17"]
+[ext_resource type="Texture2D" uid="uid://dml4nctffxdnt" path="res://Assets/Clouds/Clouds 4/1.png" id="4_shnmi"]
+[ext_resource type="Texture2D" uid="uid://dbmnpxngwyh8s" path="res://Assets/Clouds/Clouds 4/2.png" id="5_wa81r"]
+[ext_resource type="Texture2D" uid="uid://bs64phsf5sh6p" path="res://Assets/Clouds/Clouds 4/3.png" id="6_4s27i"]
+[ext_resource type="Texture2D" uid="uid://cbb6xfwpf8ul6" path="res://Assets/Clouds/Clouds 4/4.png" id="7_mncpu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nr1e1"]
+radius = 12.0
+height = 52.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mqmnj"]
+shader = ExtResource("3_4yk17")
+shader_parameter/speed = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_54btm"]
+shader = ExtResource("3_4yk17")
+shader_parameter/speed = 0.025
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ny21b"]
+shader = ExtResource("3_4yk17")
+shader_parameter/speed = 0.015
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fy5po"]
+shader = ExtResource("3_4yk17")
+shader_parameter/speed = 0.01
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CR" parent="." instance=ExtResource("1_atpe7")]
+position = Vector2(47, 20)
+scale = Vector2(1.8, 1.8)
+
+[node name="cr to house" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cr to house"]
+position = Vector2(493, 358)
+shape = SubResource("CapsuleShape2D_nr1e1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(345, 364, 375, 364, 399, 370, 450, 369, 474, 368, 481, 356, 542, 356, 550, 379, 566, 356, 570, 401, 589, 400, 592, 356, 611, 358, 612, 583, 413, 584, 412, 520, 417, 487, 442, 489, 445, 504, 432, 515, 432, 533, 454, 535, 464, 513, 476, 502, 477, 491, 491, 492, 491, 523, 525, 523, 524, 492, 535, 492, 532, 443, 453, 443, 456, 487, 446, 486, 445, 445, 368, 444, 369, 584, 347, 581)
+
+[node name="Player" parent="." instance=ExtResource("2_nr1e1")]
+position = Vector2(492, 389)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(6, 6)
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mqmnj")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("4_shnmi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_repeat = 2
+material = SubResource("ShaderMaterial_54btm")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("5_wa81r")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ny21b")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("6_4s27i")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_fy5po")
+position = Vector2(698, 362)
+scale = Vector2(3, 3)
+texture = ExtResource("7_mncpu")

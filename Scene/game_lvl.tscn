@@ -1,37 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://jafvyygf5ep7"]
+[gd_scene load_steps=16 format=3 uid="uid://jafvyygf5ep7"]
 
 [ext_resource type="PackedScene" uid="uid://bajs0k2b6myfv" path="res://Scene/player.tscn" id="1_36h6k"]
-[ext_resource type="Script" path="res://game_lvlScript.gd" id="1_dxlvg"]
-[ext_resource type="Shader" path="res://Scripts/shader.gdshader" id="2_dfq1v"]
-[ext_resource type="Texture2D" uid="uid://cqr8jc7oliss4" path="res://Assets/Png/summer8/1.png" id="3_qqm4v"]
-[ext_resource type="Texture2D" uid="uid://byp12pkcnpswx" path="res://Assets/Png/summer8/2.png" id="4_u4wqg"]
-[ext_resource type="Texture2D" uid="uid://nomaajs7o62u" path="res://Assets/Png/summer8/3.png" id="5_bavjx"]
-[ext_resource type="Texture2D" uid="uid://dw4emhdrcq2kl" path="res://Assets/Png/summer8/4.png" id="6_hcqb0"]
+[ext_resource type="Script" uid="uid://4vjhvo1pscd4" path="res://Scripts/game_lvlScript.gd" id="1_dxlvg"]
 [ext_resource type="PackedScene" uid="uid://83rcx736eyto" path="res://Scene/portel.tscn" id="10_q2bm3"]
 [ext_resource type="PackedScene" uid="uid://ds51mlx3qvi43" path="res://Scene/npc.tscn" id="11_dc0x1"]
 [ext_resource type="PackedScene" uid="uid://bkuprnhejglri" path="res://Scene/npc2.tscn" id="13_2y0bw"]
 [ext_resource type="AudioStream" uid="uid://bu6hsess3gvsg" path="res://Assets/Music/School Theme.mp3" id="13_cftri"]
 [ext_resource type="PackedScene" uid="uid://ddx4xgina0ffo" path="res://Scene/outer_place.tscn" id="13_gbjv6"]
+[ext_resource type="Script" uid="uid://2g55iu1gfhw3" path="res://Scripts/skoltohouse.gd" id="14_lj4mw"]
 [ext_resource type="PackedScene" uid="uid://b1fnltbqnnbv8" path="res://Scene/Skool.tscn" id="16_13odj"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ne6kf"]
-shader = ExtResource("2_dfq1v")
-shader_parameter/speed = 0.05
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l828o"]
-shader = ExtResource("2_dfq1v")
-shader_parameter/speed = 0.025
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ptccp"]
-shader = ExtResource("2_dfq1v")
-shader_parameter/speed = 0.015
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lux1t"]
-shader = ExtResource("2_dfq1v")
-shader_parameter/speed = 0.01
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5yve"]
-size = Vector2(304, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aigsw"]
 size = Vector2(23.5, 70)
@@ -46,63 +23,15 @@ size = Vector2(63, 35)
 size = Vector2(48, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8tkn"]
-size = Vector2(23, 29)
+size = Vector2(23, 17.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ew6ai"]
-size = Vector2(1004, 31)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ho8a"]
+size = Vector2(54.5, 95)
 
 [node name="Game LVL" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(-11, -14)
 script = ExtResource("1_dxlvg")
-
-[node name="Player" parent="." instance=ExtResource("1_36h6k")]
-z_index = 1
-position = Vector2(1080, 504)
-scale = Vector2(0.8, 0.8)
-move_speed = 125.0
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2.1, 2.1)
-
-[node name="Node2D" type="Node2D" parent="Player/Camera2D"]
-visible = false
-position = Vector2(-742, -324.5)
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/Node2D"]
-z_index = -7
-texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_ne6kf")
-position = Vector2(732.75, 327.5)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_qqm4v")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Player/Camera2D/Node2D"]
-z_index = -7
-texture_repeat = 2
-material = SubResource("ShaderMaterial_l828o")
-position = Vector2(732.75, 327.5)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_u4wqg")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Player/Camera2D/Node2D"]
-z_index = -7
-texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_ptccp")
-position = Vector2(732.75, 327.5)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("5_bavjx")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Player/Camera2D/Node2D"]
-z_index = -7
-texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_lux1t")
-position = Vector2(738.75, 328.5)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_hcqb0")
 
 [node name="The School" parent="." instance=ExtResource("16_13odj")]
 position = Vector2(-201, -165)
@@ -110,15 +39,14 @@ scale = Vector2(1.5, 1.5)
 
 [node name="Area2D" type="Area2D" parent="The School"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="The School/Area2D"]
-position = Vector2(151.333, 458.667)
-shape = SubResource("RectangleShape2D_t5yve")
-
 [node name="TeleporterMaybe" parent="." instance=ExtResource("10_q2bm3")]
 position = Vector2(436, 309)
 
 [node name="Marker2D" parent="TeleporterMaybe" index="1"]
 position = Vector2(-484, -114)
+
+[node name="CanvasModulate" parent="TeleporterMaybe" index="2"]
+visible = true
 
 [node name="NPC5" parent="." instance=ExtResource("11_dc0x1")]
 position = Vector2(1026, 175)
@@ -133,7 +61,7 @@ position = Vector2(327, 283)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
 position = Vector2(-528, -481)
 scale = Vector2(1.5, 1.596)
-polygon = PackedVector2Array(-1, 480, 0, 186, 48, 187, 48, 207, 112, 207, 112, 272, 64, 272, 64, 381, 335, 382, 335, 398, 353, 398, 354, 414, 381, 414, 381, 320, 466, 319, 466, 414, 831, 411, 832, 336, 800, 336, 800, 257, 783, 256, 784, 94, 928, 93, 928, 257, 912, 257, 912, 335, 880, 336, 880, 413, 959, 412, 958, 480, 288, 480, 289, 447, 10, 448, 10, 494, 249, 537, 549, 540, 895, 540, 1052, 498, 1067, 250, 1065, 40, 1013, -36, 814, -70, 591, -67, 418, -75, 93, -53, -64, -41, -118, 43, -131, 238, -105, 377, -85, 479, -57, 518, -16, 528, 4, 494)
+polygon = PackedVector2Array(-1, 480, 5.33334, 445.489, 5.33334, 196.115, 47.3333, 196.742, 48, 207, 112, 207, 112, 272, 64, 272, 64, 381, 335, 382, 335, 398, 353, 398, 354, 414, 381, 414, 381, 320, 466, 319, 466, 414, 831, 411, 832, 336, 800, 336, 800, 257, 783, 256, 784, 94, 928, 93, 928, 257, 912, 257, 912, 335, 880, 336, 880, 413, 959, 412, 958, 480, 938, 476.817, 917.333, 480.576, 908.667, 467.419, 894, 467.419, 886.667, 478.697, 863.5, 478.747, 857.333, 464.286, 838, 464.286, 837.333, 479.95, 731.333, 478.07, 728.667, 464.286, 710.667, 462.406, 708, 478.697, 638.667, 478.697, 631.333, 466.792, 617.333, 468.045, 609.333, 479.323, 528, 479.323, 527.333, 463.033, 508, 463.033, 507.333, 478.07, 434.667, 477.444, 426.667, 466.792, 416, 468.045, 405.333, 478.07, 337.333, 478.697, 335.333, 463.659, 316, 463.659, 313.333, 479.323, 288, 480, 289, 447, 6, 446.742, 6, 494.361, 249, 537, 549, 540, 895, 540, 1052, 498, 1067, 250, 1065, 40, 1013, -36, 814, -70, 591, -67, 418, -75, 93, -53, -64, -41, -118, 43, -131, 238, -105, 377, -85, 479, -57, 518, -16, 528, 4, 494)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
 position = Vector2(707.75, -4)
@@ -160,16 +88,12 @@ position = Vector2(792, -218)
 shape = SubResource("RectangleShape2D_l834s")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Collisions"]
-position = Vector2(707.5, 185.5)
+position = Vector2(708, 182)
 shape = SubResource("RectangleShape2D_w8tkn")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Collisions"]
-position = Vector2(803, 185)
+position = Vector2(803, 183)
 shape = SubResource("RectangleShape2D_w8tkn")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Collisions"]
-position = Vector2(407, 271.5)
-shape = SubResource("RectangleShape2D_ew6ai")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_cftri")
@@ -177,32 +101,63 @@ volume_db = -15.0
 autoplay = true
 panning_strength = 0.0
 
-[node name="NPC" parent="." instance=ExtResource("11_dc0x1")]
-position = Vector2(422, 480)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 587.0
+offset_top = 508.0
+offset_right = 627.0
+offset_bottom = 548.0
+
+[node name="npc5" parent="Control" instance=ExtResource("13_2y0bw")]
+position = Vector2(375, -17)
 scale = Vector2(1.3, 1.3)
 
-[node name="npc2" parent="." instance=ExtResource("13_2y0bw")]
-position = Vector2(587, 508)
+[node name="NPC" parent="Control" instance=ExtResource("11_dc0x1")]
+position = Vector2(-165, -28)
 scale = Vector2(1.3, 1.3)
 
-[node name="npc3" parent="." instance=ExtResource("13_2y0bw")]
-position = Vector2(742, 486)
+[node name="npc2" parent="Control" instance=ExtResource("13_2y0bw")]
 scale = Vector2(1.3, 1.3)
 
-[node name="npc4" parent="." instance=ExtResource("13_2y0bw")]
-position = Vector2(881, 509)
+[node name="npc3" parent="Control" instance=ExtResource("13_2y0bw")]
+position = Vector2(155, -22)
 scale = Vector2(1.3, 1.3)
 
-[node name="npc5" parent="." instance=ExtResource("13_2y0bw")]
-position = Vector2(962, 491)
+[node name="npc4" parent="Control" instance=ExtResource("13_2y0bw")]
+position = Vector2(294, 1)
 scale = Vector2(1.3, 1.3)
 
-[node name="NPC2" parent="." instance=ExtResource("11_dc0x1")]
-position = Vector2(90, 452)
+[node name="NPC2" parent="Control" instance=ExtResource("11_dc0x1")]
+position = Vector2(-497, -56)
 scale = Vector2(1.3, 1.3)
 
-[node name="NPC3" parent="." instance=ExtResource("11_dc0x1")]
-position = Vector2(-106, 456)
+[node name="NPC3" parent="Control" instance=ExtResource("11_dc0x1")]
+position = Vector2(-693, -52)
 scale = Vector2(1.3, 1.3)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("14_lj4mw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1212, 507.5)
+shape = SubResource("RectangleShape2D_1ho8a")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1156.0
+offset_top = 459.0
+offset_right = 1233.0
+offset_bottom = 508.0
+text = "Go Home 
+🢂"
+horizontal_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("1_36h6k")]
+position = Vector2(1161, 502)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(6, 6)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 
 [editable path="TeleporterMaybe"]

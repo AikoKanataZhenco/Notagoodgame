@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://vliw3j0x7iyg"]
+
+[ext_resource type="PackedScene" uid="uid://c6wxmmmtficps" path="res://Assets/Tiled/Tiled/MAIN.tmx" id="1_k76q4"]
+[ext_resource type="PackedScene" uid="uid://bajs0k2b6myfv" path="res://Scene/player.tscn" id="2_8tmqu"]
+[ext_resource type="Shader" uid="uid://dcp15df5uurlt" path="res://Scripts/shader.gdshader" id="3_ocxlk"]
+[ext_resource type="Texture2D" uid="uid://dml4nctffxdnt" path="res://Assets/Clouds/Clouds 4/1.png" id="4_mudup"]
+[ext_resource type="Texture2D" uid="uid://dbmnpxngwyh8s" path="res://Assets/Clouds/Clouds 4/2.png" id="5_psgx1"]
+[ext_resource type="Texture2D" uid="uid://bs64phsf5sh6p" path="res://Assets/Clouds/Clouds 4/3.png" id="6_ky7hs"]
+[ext_resource type="Texture2D" uid="uid://cbb6xfwpf8ul6" path="res://Assets/Clouds/Clouds 4/4.png" id="7_1makg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdfyv"]
+radius = 11.0
+height = 44.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtkkg"]
+size = Vector2(50, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr1qd"]
+size = Vector2(53, 14)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q4s0g"]
+shader = ExtResource("3_ocxlk")
+shader_parameter/speed = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0335"]
+shader = ExtResource("3_ocxlk")
+shader_parameter/speed = 0.025
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x6s2i"]
+shader = ExtResource("3_ocxlk")
+shader_parameter/speed = 0.015
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icyf2"]
+shader = ExtResource("3_ocxlk")
+shader_parameter/speed = 0.01
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MAIN" parent="." instance=ExtResource("1_k76q4")]
+position = Vector2(124, 63)
+scale = Vector2(1.8, 1.8)
+
+[node name="mainrom to house" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mainrom to house"]
+position = Vector2(599, 401)
+shape = SubResource("CapsuleShape2D_tdfyv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(425, 403, 441, 404, 441, 424, 470, 425, 470, 445, 525, 447, 526, 421, 552, 422, 556, 393, 658, 398, 659, 599, 556, 597, 555, 568, 544, 568, 540, 553, 514, 552, 512, 569, 500, 567, 499, 596, 440, 596, 440, 546, 465, 545, 466, 537, 465, 517, 555, 517, 555, 484, 441, 484, 441, 498, 424, 506)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(614, 504)
+shape = SubResource("RectangleShape2D_dtkkg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(613.5, 538)
+shape = SubResource("RectangleShape2D_tr1qd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(614, 574)
+shape = SubResource("RectangleShape2D_tr1qd")
+
+[node name="Player" parent="." instance=ExtResource("2_8tmqu")]
+position = Vector2(597, 431)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(6, 6)
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_q4s0g")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("4_mudup")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_repeat = 2
+material = SubResource("ShaderMaterial_v0335")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("5_psgx1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_x6s2i")
+position = Vector2(692, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("6_ky7hs")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BG"]
+z_index = -4
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_icyf2")
+position = Vector2(698, 362)
+scale = Vector2(3, 3)
+texture = ExtResource("7_1makg")
