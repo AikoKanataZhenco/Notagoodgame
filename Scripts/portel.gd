@@ -1,6 +1,11 @@
 extends Area2D
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		body.set_position($Marker2D.global_position)
-		$CanvasModulate.fade_to_black_and_out()
+var entered = false
+
+func _on_body_entered(body: CharacterBody2D) -> void:
+	entered = true
+
+func _process(delta):
+	if entered == true:
+		if Input.is_action_just_pressed("interact"):
+			Loader.change_level("res://Scene/ArtClassroom.tscn")
