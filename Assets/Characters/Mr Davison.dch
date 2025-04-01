@@ -1,0 +1,56 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+&"default_portrait": "Davison Shocked",
+&"description": "",
+&"display_name": "Mr Davison",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"Davison Shocked": {
+"export_overrides": {
+"image": "\"res://Assets/Character Profile/Mr. Davison/Davison Shocked.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Davison smile 3png": {
+"export_overrides": {
+"image": "\"res://Assets/Character Profile/Mr. Davison/Davison smile 3png.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Male Sprite by Sutemo": {
+"export_overrides": {
+"image": "\"res://Assets/Character Profile/Mr. Davison/Male Sprite by Sutemo.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Mr.Davison Profile": {
+"export_overrides": {
+"image": "\"res://Assets/Character Profile/Mr. Davison/Mr.Davison Profile.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}
