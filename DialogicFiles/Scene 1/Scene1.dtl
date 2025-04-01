@@ -1,0 +1,28 @@
+[background arg="res://DialogicFiles/Scene 1/Bg/tokiwadai_academy.png" fade="0.0"]
+The morning sun bathed Daimon High in a warm glow, casting long shadows across the courtyard where students bustled about, chatting and laughing as they headed to their classes.
+Characters/Melody: Hey! Wait up!
+Olivia turned, a smile tugging at the corners of their lips as Melody jogged to catch up, her ponytail bouncing behind her.
+join Characters/Olivia (Smile) left
+Characters/Olivia: Morning, Melody
+leave Characters/Olivia
+join Characters/Melody (Normal) left
+Characters/Melody: Morning! Ready to slay another masterpiece today?
+leave Characters/Melody
+join Characters/Olivia (grid) left
+Characters/Olivia: I hope so. Mr. Davison said we’re working on light and water reflections. I’ve been practicing all weekend.
+leave Characters/Olivia
+join Characters/Melody (Delight) left
+Characters/Melody: Of course you have. You’re obsessed!”
+leave Characters/Melody
+join Characters/Olivia (grid) left
+Characters/Olivia: Not obsessed… just dedicated.
+leave Characters/Olivia
+join Characters/Melody (Delight) left
+Characters/Melody: Same thing. You’re gonna post it later, right?
+leave Characters/Melody
+join Characters/Olivia (Smile) left
+Characters/Olivia: Yeah. I think this one’s my best yet.
+leave Characters/Olivia
+join Characters/Melody (Delight) left
+Characters/Melody: Can’t wait to see the likes roll in!
+leave Characters/Melody
