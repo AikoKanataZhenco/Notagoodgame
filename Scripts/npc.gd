@@ -24,7 +24,7 @@ func _ready():
 
 func _process(delta):
 	if player_in_area:
-		if Input.is_action_just_pressed("e"):
+		if Input.is_action_just_pressed("interact"):
 			run_dialogue("Timeline")
 	
 	if is_roaming:
