@@ -12,11 +12,15 @@ config_version=5
 
 config/name="awds"
 run/main_scene="res://Scene/menu.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0.0133511, 0.0675881, 0.0694455, 1)
-boot_splash/image="res://Assets/-UnMasked-3-11-2025.png"
 boot_splash/fullsize=false
+boot_splash/image="res://Assets/-UnMasked-3-11-2025.png"
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout=""
 
 [autoload]
 
@@ -27,10 +31,17 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Characters/Melody": "res://Assets/Characters/Melody.dch",
+"Characters/Mr Davison": "res://Assets/Characters/Mr Davison.dch",
+"Characters/Narrator": "res://Assets/Characters/Narrator.dch",
+"Characters/Olivia": "res://Assets/Characters/Olivia.dch",
+"Scene/Player": "res://Scene/Player.dch",
 "TestCharacter1": "res://DialogicFiles/TestCharacter1.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"Scene1": "res://DialogicFiles/Scene 1/Scene1.dtl",
+"Scene2": "res://DialogicFiles/Scene 2/Scene2.dtl",
 "Timeline": "res://DialogicFiles/Timeline.dtl"
 }
 extensions_folder="res://addons/dialogic_additions"
@@ -53,15 +64,17 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+glossary/default_case_sensitive=true
+glossary/glossary_files=[]
 
 [display]
 
 window/size/viewport_width=1366
 window/size/viewport_height=728
+window/size/mode=3
 window/size/initial_position_type=0
 window/size/resizable=false
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 
