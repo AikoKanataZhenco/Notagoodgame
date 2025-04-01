@@ -1,0 +1,20 @@
+[background arg="res://DialogicFiles/Scene 2/images.jpg" fade="0.0"]
+join "Characters/Mr Davison" (Davison smile 3png) left
+"Characters/Mr Davison":  Alright, class! Today, we’re exploring how light plays on water. Pay attention to ripples, reflections, and highlights. Let the water tell a story.
+leave "Characters/Mr Davison"
+Olivia hunched over their sketchbook, completely immersed. The colors blended perfectly, and the way the light bounced off the surface felt almost magical.
+join "Characters/Mr Davison" left
+"Characters/Mr Davison": Beautiful work, Olivia. You’ve really captured the movement.
+leave "Characters/Mr Davison"
+join Characters/Olivia (Smile) left
+Characters/Olivia: Thank you, Sir
+leave Characters/Olivia
+join Characters/Melody (Normal) left
+Characters/Melody (Shocked): Whoa… okay, that’s insane. You HAVE to post that.
+leave Characters/Melody
+join Characters/Olivia (Delighted) left
+Characters/Olivia: I will. After school.
+leave Characters/Olivia
+join Characters/Melody (Delight) left
+Characters/Melody: Good. People need to see this.
+leave Characters/Melody
